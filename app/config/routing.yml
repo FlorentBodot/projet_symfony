@@ -1,0 +1,12 @@
+actu_category:
+    resource: "@ActuCategoryBundle/Resources/config/routing.yml"
+    prefix:   /articles/categories
+
+actu_article:
+    resource: "@ActuArticleBundle/Resources/config/routing.yml"
+    prefix:   /articles/
+
+home:
+    resource: "@HomeBundle/Resources/config/routing.yml"
+    prefix:   /
+
