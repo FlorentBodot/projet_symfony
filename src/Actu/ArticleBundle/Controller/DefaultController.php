@@ -3,6 +3,10 @@
 namespace Actu\ArticleBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+
+use Actu\ArticleBundle\Entity\Articles;
+use Actu\ArticleBundle\Form\Type\ArticlesType;
 
 class DefaultController extends Controller
 {
@@ -11,9 +15,20 @@ class DefaultController extends Controller
         return $this->render('@ActuArticle/Default/index.html.twig');
     }
 
-    public function createAction()
+    public function addAction()
     {
-        return $this->render('@ActuArticle/Default/create.html.twig');
+        // Instance de l'entité
+        $articles = new Articles;
+
+        // Création du formulaire à partir du FormType et basé sur l'entité
+        $form = $this->createForm( ArticlesType::class, $articles);
+
+        // Envois du formulaire au fichier de vu
+        $form = $form->createView();
+
+        return $this->render('@ActuArticle/Default/create.html.twig', [
+            "form" => $form,
+        ]);
     }
 
     public function retrieveAction()
