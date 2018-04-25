@@ -3,6 +3,8 @@
 namespace Actu\ArticleBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Cocur\Slugify\Slugify;
 
 /**
  * Articles
@@ -21,6 +23,13 @@ class Articles
      */
     private $id;
 
+    /**
+     * @var string
+     * 
+     * @ORM\Column(name="slug", type="string", length=100, unique=true)
+     */
+    private $slug;
+    
     /**
      * @var string
      *
@@ -84,6 +93,10 @@ class Articles
     public function setTitle($title)
     {
         $this->title = $title;
+        
+        // Génére le Slug du titre
+        $slugify = new Slugify();
+        $this->slug = $slugify->slugify($this->title);
 
         return $this;
     }
@@ -168,5 +181,29 @@ class Articles
     public function getDatePublish()
     {
         return $this->datePublish;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Articles
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

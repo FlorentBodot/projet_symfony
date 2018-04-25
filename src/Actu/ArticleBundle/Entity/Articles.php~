@@ -3,6 +3,8 @@
 namespace Actu\ArticleBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Cocur\Slugify\Slugify;
 
 /**
  * Articles
@@ -21,6 +23,13 @@ class Articles
      */
     private $id;
 
+    /**
+     * @var string
+     * 
+     * @ORM\Column(name="slug", type="string", length=100, unique=true)
+     */
+    private $slug;
+    
     /**
      * @var string
      *
@@ -49,4 +58,128 @@ class Articles
      */
     private $datePublish;
 
+    /*
+     *   Constructeur
+     */
+
+    public function __construct() {
+        $this->dateRedac = new \Datetime();
+    }
+
+
+
+    /*
+     *   Getter/Setter
+     */
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     *
+     * @return Articles
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+        
+        // Génére le Slug du titre
+        $slugify = new Slugify();
+        $this->slug = $slugify->slugify($this->title);
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set content
+     *
+     * @param string $content
+     *
+     * @return Articles
+     */
+    public function setContent($content)
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
+    /**
+     * Get content
+     *
+     * @return string
+     */
+    public function getContent()
+    {
+        return $this->content;
+    }
+
+    /**
+     * Set dateRedac
+     *
+     * @param \DateTime $dateRedac
+     *
+     * @return Articles
+     */
+    public function setDateRedac($dateRedac)
+    {
+        $this->dateRedac = $dateRedac;
+
+        return $this;
+    }
+
+    /**
+     * Get dateRedac
+     *
+     * @return \DateTime
+     */
+    public function getDateRedac()
+    {
+        return $this->dateRedac;
+    }
+
+    /**
+     * Set datePublish
+     *
+     * @param \DateTime $datePublish
+     *
+     * @return Articles
+     */
+    public function setDatePublish($datePublish)
+    {
+        $this->datePublish = $datePublish;
+
+        return $this;
+    }
+
+    /**
+     * Get datePublish
+     *
+     * @return \DateTime
+     */
+    public function getDatePublish()
+    {
+        return $this->datePublish;
+    }
 }
