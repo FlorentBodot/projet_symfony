@@ -2,12 +2,22 @@
 
 {% block content %}
 <div class="container">
-        <div class="row">
-            <div class="col-sm-4 mr-auto ml-auto">
-                <h2>Votre Profile </h2>
-
-        
-            </div>
+    <div class="row">
+        <div class="col-sm-8 ml-auto mr-auto">
+            <h2>Votre Profil</h2>
+                <table class="table">
+                    <tbody>
+                            <tr>
+                                <th>Username</th>
+                                <td>{{ app.user.username }}</td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td>{{ app.user.email }}</td>
+                            </tr>
+                    </tbody>
+                </table>
         </div>
     </div>
+</div>
 {% endblock %}
