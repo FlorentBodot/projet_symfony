@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 mr-auto ml-auto">
+                <h2>Inscription</h2>
+
+                {% if not form.vars.valid %}
+                <div class="alert alert-danger">
+                    Le formulaire contient des erreurs.
+                </div>
+                {% endif %}
+
+                {{ form_start(form)}}
+                
+                {# Champ Email #}
+                {{ form_widget(form.email, {
+                    'attr': {
+                        'class': 'form-control',
+                        'placeholder': 'Email'
+                    }
+                }) }}
+                <br>
+                {# Champ Uername #}
+                {{ form_widget(form.username, {
+                    'attr': {
+                        'class': 'form-control',
+                        'placeholder': 'Username'
+                    }
+                }) }}
+                <br>
+                {# Champ Password  #}
+                {{ form_widget(form.plainPassword.first, {
+                    'attr': {
+                        'class': 'form-control',
+                        'placeholder': 'Password'
+                    }
+                }) }}
+                <br>
+                {# Champ Repeat Password #}
+                {{ form_widget(form.plainPassword.second, {
+                    'attr': {
+                        'class': 'form-control',
+                        'placeholder': 'Repeat Password'
+                    }
+                }) }}
+                <br>
+
+                <button type="submit" name"button" class="btn btn-block btn-success">M'inscrire</button>
+                 {{ form_end(form) }}
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
