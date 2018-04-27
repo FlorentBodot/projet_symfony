@@ -79,7 +79,7 @@ class DefaultController extends Controller
         ]);
     }
 
-    public function updateAction($id)
+    public function updateAction(Request $request, $id)
     {
           // On retrouve l'article
           $em = $this->getDoctrine()->getManager();
@@ -100,8 +100,8 @@ class DefaultController extends Controller
             $em->flush();
             
             return $this->redirectToRoute('actu_article_retrieve', [
-                "id" => $articles->getId(),
-                "slug" => $articles->getSlug()
+                "id" => $article->getId(),
+                "slug" => $article->getSlug()
             ]);
         }
 
