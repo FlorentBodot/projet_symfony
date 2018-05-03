@@ -31,6 +31,8 @@ framework:
     assets: ~
     php_errors:
         log: true
+    templating:
+        engines: ['twig']
 
 # Twig Configuration
 twig:
@@ -67,6 +69,7 @@ swiftmailer:
     password: '%mailer_password%'
     spool: { type: memory }
 
+# Fos user Bundle
 fos_user:
     db_driver: orm # other valid values are 'mongodb' and 'couchdb'
     firewall_name: main
@@ -77,4 +80,42 @@ fos_user:
         address: "%mailer_sender_address%"
         sender_name: "%mailer_sender_name%"
 
-    
+# Assetic Configuration
+assetic:
+    debug:          %kernel.debug%
+    use_controller: %kernel.debug%
+    filters:
+        cssrewrite: ~
+
+    assets: 
+
+        # Feuille de style principale 
+        Style_Main: #Nom de la ressource contenant les feuilles de style 
+            inputs: 
+                - %kernel.root_dir%/Resources/public/css/main.css
+                - %kernel.root_dir%/Resources/public/css/jumbotron.css
+        
+        Img_Main: #Nom de la ressource contenant les feuilles de style 
+            inputs: 
+                - %kernel.root_dir%/Resources/public/image/thunder.jpg
+            output: image/thunder__.jpg
+
+        #  -----------------------
+        #  Scripts
+        #  -----------------------
+
+        #  Script Vendor
+        #  inputs: 
+
+
+        # Script Main
+        # --
+
+        Script_TestAlert: #Nom de la ressource contenant les feuilles de style 
+            inputs: 
+                - %kernel.root_dir%/Resources/public/js/alert.js          
+            
+        Script_CheckForm_Registration:
+            inputs:
+                - %kernel.root_dir%/../src/User/UserBundle/Resources/public/js/check_form.js
+                

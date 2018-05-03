@@ -1,0 +1,9 @@
+.jumbotron {
+    background-image: url('image/thunder__.jpg');
+    background-size: cover;
+    background-position: center;
+    
+
+    color: #FFFFFF;
+    border-radius: 0;
+}

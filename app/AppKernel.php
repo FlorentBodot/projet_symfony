@@ -19,6 +19,7 @@ class AppKernel extends Kernel
 
             new Cocur\Slugify\Bridge\Symfony\CocurSlugifyBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Symfony\Bundle\AsseticBundle\AsseticBundle(),
 
             new HomeBundle\HomeBundle(),
             new Actu\ArticleBundle\ActuArticleBundle(),
