@@ -8,6 +8,7 @@ use Symfony\Component\OptionResolver\OptionResolver;
 
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class BookType extends AbstractType 
 {
@@ -33,6 +34,13 @@ class BookType extends AbstractType
                 "label" => "Description du livre",
                 "required" => false
             ] )
+
+            // champ "author_id" de la table "books"
+            ->add("authors", Entitytype::class, [
+                'placeholder' => "",
+                'class' => 'BookBundle:Authors',
+                'choice_label' => 'nickname',
+            ])
         ;
     }
 }

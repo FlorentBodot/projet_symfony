@@ -12,7 +12,15 @@ class EditorController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('BookBundle:Editor:index.html.twig');
+          // Appel de l'entity Manager 
+          $em = $this->getDoctrine()->getManager();
+          $editors = $em
+              ->getRepository('BookBundle:Editors')
+              ->findAll();
+  
+          return $this->render('@Book/Editor/index.html.twig', [
+              "editors" => $editors
+          ]);
     }
 
     public function createAction(Request $request)

@@ -213,28 +213,4 @@ class Books
     {
         return $this->editors;
     }
-
-    /**
-     * Set authors
-     *
-     * @param \BookBundle\Entity\Authors $authors
-     *
-     * @return Books
-     */
-    public function setAuthors(\BookBundle\Entity\Authors $authors = null)
-    {
-        $this->authors = $authors;
-
-        return $this;
-    }
-
-    /**
-     * Get authors
-     *
-     * @return \BookBundle\Entity\Authors
-     */
-    public function getAuthors()
-    {
-        return $this->authors;
-    }
 }

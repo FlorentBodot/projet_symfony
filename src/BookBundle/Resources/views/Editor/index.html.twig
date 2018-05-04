@@ -3,5 +3,22 @@
 {% block content %}
     <div class="container">
         <h2>Liste des éditeurs</h2>
+
+        {% for editor in editors %}
+            <div>
+                <h2>{{ editor.name }}</h2>
+
+                <strong>Liste des publications</strong>
+                <ul>
+                {% for book in editor.book %}
+
+                    <a href="{{ path('book_retrieve', {id: book.id}) }}">{{ book.title }}</a>
+
+                   ( <a href="{{ path('author_retrieve', {id: book.authors.id}) }}">{{ book.authors.firstname }} {{ book.authors.lastname }} )</a>
+                {% endfor %}
+                </ul>
+            </div>
+            <hr>
+        {% endfor %}
     </div>
 {% endblock %}
