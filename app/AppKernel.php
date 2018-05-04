@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             new Actu\ArticleBundle\ActuArticleBundle(),
             new Actu\CategoryBundle\ActuCategoryBundle(),
             new User\UserBundle\UserBundle(),
+            new BookBundle\BookBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

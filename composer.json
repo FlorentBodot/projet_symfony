@@ -9,6 +9,7 @@
             "Actu\\ArticleBundle\\": "src/Actu/ArticleBundle",
             "Actu\\CategoryBundle\\": "src/Actu/CategoryBundle",
             "User\\UserBundle\\": "src/User/UserBundle",
+            "BookBundle\\": "src/BookBundle",
             "ArticleBundle\\DataFixtures\\": "src/Actu/ArticleBundle/DataFixtures"
         },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]

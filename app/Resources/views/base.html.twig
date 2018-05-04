@@ -4,10 +4,13 @@
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         {% block stylesheets %}
 
-        {% stylesheets "@Style_Main" filter='cssrewrite' %}
+        {% stylesheets "@Style_Vendors" %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+
+        {% stylesheets "@Style_Main" %}
         <link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
         
@@ -69,7 +72,7 @@
         {% endblock %}
 
         {% block javascripts %}
-            {% javascripts '@Script_TestAlert' %}
+            {% javascripts '@Script_Vendors' %}
                 <script src="{{ asset_url }}"></script>
             {% endjavascripts %}
         {% endblock %}

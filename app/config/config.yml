@@ -3,6 +3,7 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: "@HomeBundle/Resources/config/services.yml" }
+    - { resource: "@BookBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -89,33 +90,50 @@ assetic:
 
     assets: 
 
+        #  ------------
+        #  Styles
+        #  ------------
+
+        #  Style Vendor
+        #  ---------
+
+        Style_Vendors:
+            input: 
+                - %kernel.root_dir%/../vendor/bower/bootstrap/dist/css/bootstrap.css
+
+        #  Style main
+        #  --------
+
         # Feuille de style principale 
         Style_Main: #Nom de la ressource contenant les feuilles de style 
             inputs: 
                 - %kernel.root_dir%/Resources/public/css/main.css
                 - %kernel.root_dir%/Resources/public/css/jumbotron.css
-        
-        Img_Main: #Nom de la ressource contenant les feuilles de style 
-            inputs: 
-                - %kernel.root_dir%/Resources/public/image/thunder.jpg
-            output: image/thunder__.jpg
-
+                
+                
         #  -----------------------
         #  Scripts
         #  -----------------------
 
-        #  Script Vendor
-        #  inputs: 
+        Script_Vendors:
+            inputs: 
+                - %kernel.root_dir%/../vendor/bower/jquery/dist/jquery.min.js                         
+                - %kernel.root_dir%/../vendor/bower/popper.js/dist/umd/popper.js                         
+                - %kernel.root_dir%/../vendor/bower/bootstrap/dist/js/bootstrap.js                         
 
 
         # Script Main
         # --
 
-        Script_TestAlert: #Nom de la ressource contenant les feuilles de style 
-            inputs: 
-                - %kernel.root_dir%/Resources/public/js/alert.js          
+        # Script_Vendors: #Nom de la ressource contenant les feuilles de style 
+        #     inputs: 
+        #         - %kernel.root_dir%/Resources/public/js/alert.js          
             
         Script_CheckForm_Registration:
             inputs:
                 - %kernel.root_dir%/../src/User/UserBundle/Resources/public/js/check_form.js
                 
+        Img_Main: #Nom de la ressource contenant les feuilles de style 
+            inputs: 
+                - %kernel.root_dir%/Resources/public/image/thunder.jpg
+            output: image/thunder__.jpg

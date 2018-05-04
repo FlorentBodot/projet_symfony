@@ -1,0 +1,15 @@
+{
+  "name": "projet_symfony",
+  "homepage": "https://github.com/FlorentBodot/projet_symfony",
+  "authors": [
+    "Florent Bodot <tiflobo76550@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^4.1.1",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.3"
+  }
+}

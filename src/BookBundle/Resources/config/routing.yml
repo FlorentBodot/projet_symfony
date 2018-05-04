@@ -1,0 +1,105 @@
+#  Books Routing
+#  -------------
+#  books/
+book_index:
+    path:     /books
+    defaults:  
+        _controller: BookBundle:Book:index 
+
+#  books/create
+book_create:
+    path:     /books/create
+    defaults:  
+        _controller: BookBundle:Book:create 
+
+#  books/{id}
+book_retrieve:
+    path:     /books/{id}
+    defaults:  
+        _controller: BookBundle:Book:retrieve 
+    requirements:
+        id: \d+
+#  books/{id}/update
+book_update:
+    path:     /books/{id}/update
+    defaults:  
+        _controller: BookBundle:Book:update 
+    requirements:
+        id: \d+
+
+#  books/{id}/delete
+book_delete:
+    path:     /books/{id}/delete
+    defaults:  
+        _controller: BookBundle:Book:delete 
+    requirements:
+        id: \d+
+
+#  author Routing
+#  -------------
+#  books/authors
+author_index:
+    path:     /authors/
+    defaults:  
+        _controller: BookBundle:Author:index 
+
+author_create:
+    path:     /authors/create
+    defaults:  
+        _controller: BookBundle:Author:create 
+
+author_retrieve:
+    path:     /authors/{id}
+    defaults:  
+        _controller: BookBundle:Author:retrieve 
+    requirements:
+        id: \d+
+
+author_update:
+    path:     /authors/{id}/update
+    defaults:  
+        _controller: BookBundle:Author:update 
+    requirements:
+        id: \d+
+
+author_delete:
+    path:     /authors/{id}/delete
+    defaults:  
+        _controller: BookBundle:Author:delete 
+    requirements:
+        id: \d+
+
+#  Editor Routing
+#  -------------
+#  books/editors
+Editor_index:
+    path:     /editors
+    defaults:  
+        _controller: BookBundle:Editor:index 
+
+#  books /editors/create
+editor_create:
+    path:     /editors/create
+    defaults:  
+        _controller: BookBundle:Editor:create 
+
+editor_retrieve:
+    path:     /editors/{id}
+    defaults:  
+        _controller: BookBundle:Editor:retrieve 
+    requirements:
+        id: \d+
+
+editor_update:
+    path:     /editors/{id}/update
+    defaults:  
+        _controller: BookBundle:Editor:update 
+    requirements:
+        id: \d+
+
+editor_delete:
+    path:     /eidtors/{id}/delete
+    defaults:  
+        _controller: BookBundle:Editor:delete 
+    requirements:
+        id: \d+
