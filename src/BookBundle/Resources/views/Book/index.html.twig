@@ -3,5 +3,16 @@
 {% block content %}
     <div class="container">
         <h2>Liste des livres</h2>
+
+            {% for book in books %}
+                <div>
+                    <h2>{{ book.title }}</h2>
+                    <div>{{ book.cover }}</div>
+                    
+                    <a href="{{ path('book_retrieve', {
+                        "id":   book.id,
+                    }) }}">Lire la fiche du livre</a>
+                </div>
+            {% endfor %}
     </div>
 {% endblock %}

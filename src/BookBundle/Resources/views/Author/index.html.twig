@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="container">
+        <h2>Liste des auteurs</h2>
+
+        {% for author in authors %}
+            <div>
+                <h2>{{ author.lastname }} {{ author.firstname }}</h2>
+                <div>{{ author.nickname }}</div>
+                
+                <a href="{{ path('author_retrieve', {
+                    "id":   author.id,
+                }) }}">Lire la fiche de l'auteur</a>
+            </div>
+         {% endfor %}
+    </div>
+{% endblock %}

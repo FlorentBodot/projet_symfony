@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="container">
+        <h2>Info de l'auteur</h2>
+        <h3>{{ author.firstname }}</h3>
+        <h3>{{ author.lastname }}</h3>
+        <h3>{{ author.nickname }}</h3>
+        <div>{{ author.photo }}</div>        
+        <div>{{ author.bio }}</div>
+
+    <a href="{{ path('author_update', {
+        "id": author.id
+    }) }}">Modifier l'article</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="container">
+        <h2>Info de l'éditeur</h2>
+        <h3>{{ editor.name }}</h3>
+        <div>{{ editor.description }}</div>
+
+        <a href="{{ path('editor_update', {
+            "id": editor.id
+        }) }}">Modifier l'article</a>
+    </div>
+{% endblock %}

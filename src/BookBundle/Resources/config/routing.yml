@@ -72,7 +72,7 @@ author_delete:
 #  Editor Routing
 #  -------------
 #  books/editors
-Editor_index:
+editor_index:
     path:     /editors
     defaults:  
         _controller: BookBundle:Editor:index 
